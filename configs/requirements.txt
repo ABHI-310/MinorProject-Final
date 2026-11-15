@@ -13,3 +13,5 @@ pillow==12.3.0
 httpx==0.28.1
 lightgbm==4.7.0
 scipy==1.17.1
+
+pi-heif==1.4.0
