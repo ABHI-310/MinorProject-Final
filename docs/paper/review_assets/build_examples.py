@@ -6,11 +6,11 @@ import os
 import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
-from tempfile import TemporaryFile
+from tempfile import TemporaryFile, gettempdir
 from shutil import copyfileobj
 from zipfile import ZipFile
 
-os.environ.setdefault("YOLO_CONFIG_DIR", "/private/tmp/pcb-paper-yolo")
+os.environ.setdefault("YOLO_CONFIG_DIR", str(Path(gettempdir()) / "pcb-paper-yolo"))
 from build_figures import ROOT, REPORTS, Image, plt, Rectangle, save, np, NAMES, COLORS
 
 sys.path.insert(0, str(ROOT / "src"))
@@ -42,7 +42,7 @@ save(fig,"06_missing_hole_example",False)
 
 audit = json.loads((REPORTS/"pcb100_defectdet_missing_hole_double_layer_alert_audit.json").read_text())
 rows = [audit["alerts"][0], next(x for x in audit["alerts"] if x["visual_observation"] == "visible hole")]
-with ZipFile(ROOT/"artifacts/pcb_defectdet_k100_r100_input.zip") as archive:
+with ZipFile(ROOT/"training-inputs/pcb_defectdet_k100_r100_input.zip") as archive:
     manifest = json.loads(archive.read("defectdet_k100_r100_manifest.json"))
 hashes = {r["image"]:r["image_sha256"] for r in manifest["target_test"]}
 fig, axes = plt.subplots(1,2,figsize=(8,3.5),layout="constrained")

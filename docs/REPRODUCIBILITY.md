@@ -47,7 +47,10 @@ training and testing. Follow the [RUL commands](../pcb_rul/README.md).
 Run `python pcb_rul/simulate.py generate` with the checked-in
 [detector calibration](../pcb_rul/outputs/detector_stats.json).
 To repeat calibration, extract `pku_calibration_layouts_06_10.zip` under
-`data/raw/pku/`, then run `python pcb_rul/simulate.py calibrate`. The release
+`data/raw/pku/`. In a scratch checkout, move the existing
+`pcb_rul/outputs/detector_stats.json` to a backup path, then run
+`python pcb_rul/simulate.py calibrate`. The calibration command refuses
+to overwrite existing statistics. The release
 subset contains the 93 images and original XML annotations used for the detector
 error measurements. The full dataset is available from
 [PKU](https://robotics.pkusz.edu.cn/resources/dataset/).
@@ -59,6 +62,17 @@ devices and library versions may produce different weights and scores.
 
 The frozen results, seed comparisons and plots are in
 [the final test report directory](../pcb_rul/outputs/colab-final-results/).
+
+## Paper figures
+
+All figure files used by the paper are included. To regenerate charts and
+confusion matrices from the saved predictions and results, run
+`python docs/paper/review_assets/build_figures.py`. To regenerate the audited
+image panels, also extract the PKU calibration subset and put the K100/R100
+input archive in `training-inputs/`. Then run
+`python docs/paper/review_assets/build_examples.py IMAGE_DIRECTORY`, where
+`IMAGE_DIRECTORY` contains the original DefectDet images from the dataset DOI
+above. The script checks the image hashes against the original manifest.
 
 ## Application checks
 

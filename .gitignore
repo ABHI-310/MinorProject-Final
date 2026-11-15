@@ -39,3 +39,6 @@ output/pcb_ieee_latex/*.out
 output/pcb_ieee_latex/*.fls
 output/pcb_ieee_latex/*.fdb_latexmk
 training-inputs/
+
+# Regenerated paper figures
+docs/paper/review_assets/figures/
