@@ -1,0 +1,64 @@
+{
+  "checkpoint_sha256": "931f4ceaeb6eb5d4b827eeff2dde51e7d14846554dc2eddb062607ede21df072",
+  "mode": "horizontal_mirror_1536_missing_hole_640",
+  "splits": {
+    "pku_layout_holdout": {
+      "images": 93,
+      "baseline": {
+        "tp": 69,
+        "fp": 0,
+        "fn": 7
+      },
+      "corrected": {
+        "tp": 72,
+        "fp": 0,
+        "fn": 4
+      }
+    },
+    "pku_layout_05": {
+      "images": 60,
+      "baseline": {
+        "tp": 46,
+        "fp": 0,
+        "fn": 0
+      },
+      "corrected": {
+        "tp": 46,
+        "fp": 0,
+        "fn": 0
+      }
+    },
+    "source_development": {
+      "images": 130,
+      "baseline": {
+        "unscored_missing_hole_alerts": 0
+      },
+      "corrected": {
+        "unscored_missing_hole_alerts": 0
+      }
+    },
+    "target_heldout": {
+      "images": 148,
+      "baseline": {
+        "unscored_missing_hole_alerts": 29
+      },
+      "corrected": {
+        "unscored_missing_hole_alerts": 29
+      }
+    }
+  },
+  "marked_photo": {
+    "file": "10_missing_hole_02.jpg",
+    "counts": {
+      "tp": 5,
+      "fp": 0,
+      "fn": 0
+    },
+    "other_class_alerts": 7
+  },
+  "notes": [
+    "Recovery settings were chosen after inspecting these development results.",
+    "Source and target original-class predictions are identical before and after recovery.",
+    "The double-layer and single-layer comparison sets lack missing-hole annotations. Their missing-hole alerts are unscored."
+  ]
+}

@@ -1,0 +1,41 @@
+# Local environment and credentials
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+node_modules/
+.DS_Store
+*.log
+
+# Datasets, runtime state and generated training artifacts
+data/**
+!data/README.md
+!data/.gitkeep
+artifacts/**
+!artifacts/README.md
+archive/**
+!archive/README.md
+
+# Large binary evidence; keep small reports and provenance in version control
+reports/**/*.pt
+reports/**/*.zip
+reports/**/*.npy
+reports/**/verification_images/
+downloads/
+
+# Local builds and generated experiment outputs
+data/runtime/
+pcb_rul/outputs/*
+!pcb_rul/outputs/detector_stats.json
+!pcb_rul/outputs/colab-final-results/
+output/pcb_ieee_latex/*.aux
+output/pcb_ieee_latex/*.pdf
+output/pcb_ieee_latex/*.out
+output/pcb_ieee_latex/*.fls
+output/pcb_ieee_latex/*.fdb_latexmk
+training-inputs/

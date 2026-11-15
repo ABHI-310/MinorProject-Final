@@ -1,0 +1,96 @@
+{
+  "model": "YOLO11s",
+  "checkpoint_sha256": "931f4ceaeb6eb5d4b827eeff2dde51e7d14846554dc2eddb062607ede21df072",
+  "image_size": 1280,
+  "classes": [
+    "missing_hole",
+    "mouse_bite",
+    "open_circuit",
+    "short",
+    "spur",
+    "spurious_copper"
+  ],
+  "checkpoint_classes": [
+    "short",
+    "spur",
+    "spurious_copper",
+    "open",
+    "mousebite",
+    "missing_hole"
+  ],
+  "output_class_ids": {
+    "0": 3,
+    "1": 4,
+    "2": 5,
+    "3": 2,
+    "4": 1,
+    "5": 0
+  },
+  "evaluated_class_ids": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "development_mAP50": 0.8365241186270456,
+  "development_mAP50_95": 0.3820252580235136,
+  "inference": {
+    "iou": 0.4,
+    "rect": false,
+    "max_det": 300,
+    "agnostic_nms": false,
+    "augment": false,
+    "mirror_image_size": 1536,
+    "horizontal_mirror": true,
+    "missing_hole_recovery": true
+  },
+  "operating_point": {
+    "confidence": 0.325,
+    "tp": 641,
+    "fp": 132,
+    "fn": 180,
+    "precision": 0.8292367399741267,
+    "recall": 0.7807551766138855,
+    "f1": 0.8042659974905897
+  },
+  "limitations": [
+    "Missing-hole alerts use confidence 0.40 or higher. An additional 640-pixel pass recovers large holes using the same checkpoint. On synthetic PKU layouts 06 and 10, this setting found 72 of 76 labeled holes with zero false alerts.",
+    "On 148 real double-layer DefectDet images, visual review found 29 false missing-hole alerts at the same cutoff. Missing-hole recall on these boards remains unverified.",
+    "The single-layer comparison scores five original classes. The DefectDet comparison scores four original classes."
+  ],
+  "target_evaluation": {
+    "dataset": "DefectDet V1",
+    "images": 148,
+    "classes": [
+      "short",
+      "spur",
+      "spurious_copper",
+      "open_circuit"
+    ],
+    "map50": 0.8446397868023499,
+    "map50_95": 0.4368570291627593,
+    "operating_point": {
+      "confidence": 0.325,
+      "tp": 461,
+      "fp": 60,
+      "fn": 130,
+      "precision": 0.8848368522072937,
+      "recall": 0.7800338409475466,
+      "f1": 0.829136690647482
+    }
+  },
+  "class_confidence": {
+    "missing_hole": 0.4
+  },
+  "missing_hole_evaluation": {
+    "dataset": "Synthetic PKU, layouts 06 and 10",
+    "images": 93,
+    "ap50": 0.9186832778830983,
+    "confidence": 0.4,
+    "tp": 72,
+    "fp": 0,
+    "fn": 4,
+    "ap50_protocol": "Original 1280/1536 evaluation without the fixed-cutoff recovery pass"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "checkpoint_sha256": "931f4ceaeb6eb5d4b827eeff2dde51e7d14846554dc2eddb062607ede21df072",
+  "mode": "horizontal_mirror_1536_missing_hole_640_confirmed",
+  "splits": {
+    "pku_layout_holdout": {
+      "images": 93,
+      "adjusted_images": [
+        "10_missing_hole_01.jpg",
+        "10_missing_hole_02.jpg",
+        "10_missing_hole_03.jpg",
+        "10_missing_hole_04.jpg",
+        "10_missing_hole_05.jpg"
+      ],
+      "before": {
+        "tp": 299,
+        "fp": 337,
+        "fn": 170
+      },
+      "after": {
+        "tp": 299,
+        "fp": 305,
+        "fn": 170
+      }
+    },
+    "pku_layout_05": {
+      "images": 60,
+      "adjusted_images": [],
+      "before": {
+        "tp": 203,
+        "fp": 181,
+        "fn": 56
+      },
+      "after": {
+        "tp": 203,
+        "fp": 181,
+        "fn": 56
+      }
+    },
+    "source_development": {
+      "images": 130,
+      "adjusted_images": [],
+      "original_class_predictions_identical": true
+    },
+    "target_heldout": {
+      "images": 148,
+      "adjusted_images": [],
+      "original_class_predictions_identical": true
+    }
+  },
+  "marked_photo": {
+    "file": "10_missing_hole_02.jpg",
+    "counts": {
+      "tp": 5,
+      "fp": 0,
+      "fn": 0
+    },
+    "other_class_alerts": 0,
+    "previous_other_class_alerts": 7
+  },
+  "notes": [
+    "Settings were developed after inspecting these evaluation images.",
+    "The two annotated original-class comparison sets did not trigger the rule, so their existing AP values and fixed-cutoff outputs are unchanged.",
+    "PKU counts use all six class annotations. Its images have one synthetic defect category per photo.",
+    "Mixed real boards with several genuine missing drill holes were unavailable to test."
+  ]
+}

@@ -1,0 +1,7 @@
+True / predicted,Short,Spur,Spurious copper,Open circuit,Mouse bite,Background
+Short,130,1,0,0,0,12
+Spur,0,119,0,0,0,47
+Spurious copper,0,0,124,0,0,20
+Open circuit,1,0,0,142,1,15
+Mouse bite,0,0,0,0,126,83
+Background,10,59,12,9,39,0

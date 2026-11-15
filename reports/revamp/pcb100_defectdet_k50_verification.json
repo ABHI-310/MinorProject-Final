@@ -1,0 +1,698 @@
+{
+  "experiment": "50 DefectDet V1 target images and 50 PCB-Defect V1 source replay images",
+  "archive_sha256": "cf2a49d4e453f5090189e0e8008af9f79f194ba77daccacc9797b37f52f16bf8",
+  "same_checkpoint_for_both_evaluation_domains": "e606b4f44211c94858d57162049de0cbd07ef5e805a175cbf5b7fc400d5fc45c",
+  "target_heldout": {
+    "mode": "target",
+    "images": 148,
+    "labels": 591,
+    "classes": [
+      "short",
+      "spur",
+      "spurious_copper",
+      "open_circuit"
+    ],
+    "manifest_sha256": "63cd498cd38fbc8c40dceeffd4522b6c902870af7816ded15204e692f6dd560b",
+    "adapted_checkpoint_sha256": "e606b4f44211c94858d57162049de0cbd07ef5e805a175cbf5b7fc400d5fc45c",
+    "base_checkpoint_sha256": "d3451921ab46341c85c84214209da24ad21ebd6462e06b44c27a1eb884ee64b5",
+    "prediction_settings": {
+      "imgsz": 1280,
+      "device": "cpu",
+      "batch": 1,
+      "conf": 0.001,
+      "verbose": false,
+      "save": false,
+      "classes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "iou": 0.4,
+      "max_det": 300,
+      "agnostic_nms": false,
+      "augment": false,
+      "rect": false,
+      "mirror_image_size": 1536,
+      "confidence_cutoff": 0.325
+    },
+    "training_identity": {
+      "start_sha256": "d3451921ab46341c85c84214209da24ad21ebd6462e06b44c27a1eb884ee64b5",
+      "manifest_sha256": "63cd498cd38fbc8c40dceeffd4522b6c902870af7816ded15204e692f6dd560b",
+      "ultralytics": "8.4.142",
+      "torch": "2.11.0+cu130",
+      "recipe": {
+        "data": "/kaggle/working/pcb_defectdet_k50/train.yaml",
+        "epochs": 30,
+        "imgsz": 1280,
+        "batch": 2,
+        "nbs": 8,
+        "device": 0,
+        "workers": 0,
+        "amp": false,
+        "cache": false,
+        "val": false,
+        "patience": 0,
+        "save": true,
+        "plots": false,
+        "optimizer": "AdamW",
+        "lr0": 0.0002,
+        "lrf": 0.1,
+        "cos_lr": true,
+        "warmup_epochs": 1.0,
+        "warmup_bias_lr": 0.0,
+        "seed": 42,
+        "deterministic": true,
+        "rect": false,
+        "freeze": 0,
+        "classes": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "augmentations": [],
+        "mosaic": 0.0,
+        "mixup": 0.0,
+        "copy_paste": 0.0,
+        "cutmix": 0.0,
+        "degrees": 0.0,
+        "translate": 0.03,
+        "scale": 0.1,
+        "shear": 0.0,
+        "perspective": 0.0,
+        "fliplr": 0.5,
+        "flipud": 0.5,
+        "hsv_h": 0.0,
+        "hsv_s": 0.1,
+        "hsv_v": 0.1,
+        "project": "/kaggle/working/pcb_defectdet_k50",
+        "name": "training",
+        "exist_ok": false
+      }
+    },
+    "final_training_log": {
+      "epoch": "30",
+      "time": "1238.77",
+      "train/box_loss": "1.22981",
+      "train/cls_loss": "0.76032",
+      "train/dfl_loss": "1.08939",
+      "metrics/precision(B)": "0.94819",
+      "metrics/recall(B)": "0.83446",
+      "metrics/mAP50(B)": "0.90552",
+      "metrics/mAP50-95(B)": "0.56447",
+      "val/box_loss": "1.31196",
+      "val/cls_loss": "0.78457",
+      "val/dfl_loss": "1.12744",
+      "lr/pg0": "2.0493e-05",
+      "lr/pg1": "2.0493e-05",
+      "lr/pg2": "2.0493e-05"
+    },
+    "results": {
+      "base": {
+        "mAP50": 0.0,
+        "mAP50_95": 0.0,
+        "per_class_AP50": {
+          "short": 0.0,
+          "spur": 0.0,
+          "spurious_copper": 0.0,
+          "open_circuit": 0.0
+        },
+        "overall": {
+          "tp": 0,
+          "fp": 58,
+          "fn": 591,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "per_class": {
+          "short": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 147,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "spur": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 146,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "spurious_copper": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 145,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "open_circuit": {
+            "tp": 0,
+            "fp": 58,
+            "fn": 153,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        }
+      },
+      "adapted": {
+        "mAP50": 0.7941418209606402,
+        "mAP50_95": 0.38381586304457666,
+        "per_class_AP50": {
+          "short": 0.5970174061196031,
+          "spur": 0.8122781061168327,
+          "spurious_copper": 0.9214494270513497,
+          "open_circuit": 0.8458223445547755
+        },
+        "overall": {
+          "tp": 398,
+          "fp": 31,
+          "fn": 193,
+          "precision": 0.9277389277389277,
+          "recall": 0.6734348561759729,
+          "f1": 0.7803921568627451
+        },
+        "per_class": {
+          "short": {
+            "tp": 68,
+            "fp": 9,
+            "fn": 79,
+            "precision": 0.8831168831168831,
+            "recall": 0.46258503401360546,
+            "f1": 0.6071428571428571
+          },
+          "spur": {
+            "tp": 92,
+            "fp": 1,
+            "fn": 54,
+            "precision": 0.989247311827957,
+            "recall": 0.6301369863013698,
+            "f1": 0.7698744769874477
+          },
+          "spurious_copper": {
+            "tp": 122,
+            "fp": 9,
+            "fn": 23,
+            "precision": 0.9312977099236641,
+            "recall": 0.8413793103448276,
+            "f1": 0.8840579710144928
+          },
+          "open_circuit": {
+            "tp": 116,
+            "fp": 12,
+            "fn": 37,
+            "precision": 0.90625,
+            "recall": 0.7581699346405228,
+            "f1": 0.8256227758007118
+          }
+        }
+      }
+    }
+  },
+  "target_heldout_by_filename_group": {
+    "19": {
+      "images": 16,
+      "labels": 64,
+      "mAP50": 0.7807088003367277,
+      "tp": 42,
+      "fp": 2,
+      "fn": 22,
+      "precision": 0.9545454545454546,
+      "recall": 0.65625,
+      "f1": 0.7777777777777778
+    },
+    "30": {
+      "images": 16,
+      "labels": 68,
+      "mAP50": 0.6997484423596387,
+      "tp": 41,
+      "fp": 1,
+      "fn": 27,
+      "precision": 0.9761904761904762,
+      "recall": 0.6029411764705882,
+      "f1": 0.7454545454545455
+    },
+    "32": {
+      "images": 16,
+      "labels": 64,
+      "mAP50": 0.8287431101472847,
+      "tp": 40,
+      "fp": 2,
+      "fn": 24,
+      "precision": 0.9523809523809523,
+      "recall": 0.625,
+      "f1": 0.7547169811320755
+    },
+    "47": {
+      "images": 16,
+      "labels": 60,
+      "mAP50": 0.7752752424951832,
+      "tp": 39,
+      "fp": 3,
+      "fn": 21,
+      "precision": 0.9285714285714286,
+      "recall": 0.65,
+      "f1": 0.7647058823529411
+    },
+    "48": {
+      "images": 16,
+      "labels": 63,
+      "mAP50": 0.7939838010437871,
+      "tp": 45,
+      "fp": 10,
+      "fn": 18,
+      "precision": 0.8181818181818182,
+      "recall": 0.7142857142857143,
+      "f1": 0.7627118644067796
+    },
+    "49": {
+      "images": 12,
+      "labels": 48,
+      "mAP50": 0.9763846153846154,
+      "tp": 38,
+      "fp": 1,
+      "fn": 10,
+      "precision": 0.9743589743589743,
+      "recall": 0.7916666666666666,
+      "f1": 0.8735632183908046
+    },
+    "94": {
+      "images": 24,
+      "labels": 96,
+      "mAP50": 0.8073071022940318,
+      "tp": 64,
+      "fp": 2,
+      "fn": 32,
+      "precision": 0.9696969696969697,
+      "recall": 0.6666666666666666,
+      "f1": 0.7901234567901234
+    },
+    "100": {
+      "images": 16,
+      "labels": 64,
+      "mAP50": 0.760172495856461,
+      "tp": 44,
+      "fp": 7,
+      "fn": 20,
+      "precision": 0.8627450980392157,
+      "recall": 0.6875,
+      "f1": 0.7652173913043478
+    },
+    "106": {
+      "images": 16,
+      "labels": 64,
+      "mAP50": 0.8389231192560885,
+      "tp": 45,
+      "fp": 3,
+      "fn": 19,
+      "precision": 0.9375,
+      "recall": 0.703125,
+      "f1": 0.8035714285714286
+    }
+  },
+  "source_development": {
+    "mode": "source",
+    "images": 130,
+    "labels": 821,
+    "classes": [
+      "short",
+      "spur",
+      "spurious_copper",
+      "open_circuit",
+      "mouse_bite"
+    ],
+    "manifest_sha256": "63cd498cd38fbc8c40dceeffd4522b6c902870af7816ded15204e692f6dd560b",
+    "adapted_checkpoint_sha256": "e606b4f44211c94858d57162049de0cbd07ef5e805a175cbf5b7fc400d5fc45c",
+    "base_checkpoint_sha256": "d3451921ab46341c85c84214209da24ad21ebd6462e06b44c27a1eb884ee64b5",
+    "prediction_settings": {
+      "imgsz": 1280,
+      "device": "cpu",
+      "batch": 1,
+      "conf": 0.001,
+      "verbose": false,
+      "save": false,
+      "classes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "iou": 0.4,
+      "max_det": 300,
+      "agnostic_nms": false,
+      "augment": false,
+      "rect": false,
+      "mirror_image_size": 1536,
+      "confidence_cutoff": 0.325
+    },
+    "training_identity": {
+      "start_sha256": "d3451921ab46341c85c84214209da24ad21ebd6462e06b44c27a1eb884ee64b5",
+      "manifest_sha256": "63cd498cd38fbc8c40dceeffd4522b6c902870af7816ded15204e692f6dd560b",
+      "ultralytics": "8.4.142",
+      "torch": "2.11.0+cu130",
+      "recipe": {
+        "data": "/kaggle/working/pcb_defectdet_k50/train.yaml",
+        "epochs": 30,
+        "imgsz": 1280,
+        "batch": 2,
+        "nbs": 8,
+        "device": 0,
+        "workers": 0,
+        "amp": false,
+        "cache": false,
+        "val": false,
+        "patience": 0,
+        "save": true,
+        "plots": false,
+        "optimizer": "AdamW",
+        "lr0": 0.0002,
+        "lrf": 0.1,
+        "cos_lr": true,
+        "warmup_epochs": 1.0,
+        "warmup_bias_lr": 0.0,
+        "seed": 42,
+        "deterministic": true,
+        "rect": false,
+        "freeze": 0,
+        "classes": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "augmentations": [],
+        "mosaic": 0.0,
+        "mixup": 0.0,
+        "copy_paste": 0.0,
+        "cutmix": 0.0,
+        "degrees": 0.0,
+        "translate": 0.03,
+        "scale": 0.1,
+        "shear": 0.0,
+        "perspective": 0.0,
+        "fliplr": 0.5,
+        "flipud": 0.5,
+        "hsv_h": 0.0,
+        "hsv_s": 0.1,
+        "hsv_v": 0.1,
+        "project": "/kaggle/working/pcb_defectdet_k50",
+        "name": "training",
+        "exist_ok": false
+      }
+    },
+    "final_training_log": {
+      "epoch": "30",
+      "time": "1238.77",
+      "train/box_loss": "1.22981",
+      "train/cls_loss": "0.76032",
+      "train/dfl_loss": "1.08939",
+      "metrics/precision(B)": "0.94819",
+      "metrics/recall(B)": "0.83446",
+      "metrics/mAP50(B)": "0.90552",
+      "metrics/mAP50-95(B)": "0.56447",
+      "val/box_loss": "1.31196",
+      "val/cls_loss": "0.78457",
+      "val/dfl_loss": "1.12744",
+      "lr/pg0": "2.0493e-05",
+      "lr/pg1": "2.0493e-05",
+      "lr/pg2": "2.0493e-05"
+    },
+    "results": {
+      "base": {
+        "mAP50": 0.8150847911049066,
+        "mAP50_95": 0.37572844918993453,
+        "per_class_AP50": {
+          "short": 0.9482290020237051,
+          "spur": 0.7590776391248528,
+          "spurious_copper": 0.8884649172925453,
+          "open_circuit": 0.8596352450362057,
+          "mouse_bite": 0.6200171520472245
+        },
+        "overall": {
+          "tp": 618,
+          "fp": 110,
+          "fn": 203,
+          "precision": 0.8489010989010989,
+          "recall": 0.7527405602923264,
+          "f1": 0.7979341510652034
+        },
+        "per_class": {
+          "short": {
+            "tp": 125,
+            "fp": 5,
+            "fn": 18,
+            "precision": 0.9615384615384616,
+            "recall": 0.8741258741258742,
+            "f1": 0.9157509157509157
+          },
+          "spur": {
+            "tp": 116,
+            "fp": 34,
+            "fn": 50,
+            "precision": 0.7733333333333333,
+            "recall": 0.6987951807228916,
+            "f1": 0.7341772151898734
+          },
+          "spurious_copper": {
+            "tp": 119,
+            "fp": 26,
+            "fn": 25,
+            "precision": 0.8206896551724138,
+            "recall": 0.8263888888888888,
+            "f1": 0.8235294117647058
+          },
+          "open_circuit": {
+            "tp": 140,
+            "fp": 15,
+            "fn": 19,
+            "precision": 0.9032258064516129,
+            "recall": 0.8805031446540881,
+            "f1": 0.89171974522293
+          },
+          "mouse_bite": {
+            "tp": 118,
+            "fp": 30,
+            "fn": 91,
+            "precision": 0.7972972972972973,
+            "recall": 0.5645933014354066,
+            "f1": 0.6610644257703081
+          }
+        }
+      },
+      "adapted": {
+        "mAP50": 0.803361020025374,
+        "mAP50_95": 0.3532519034736514,
+        "per_class_AP50": {
+          "short": 0.937937817533494,
+          "spur": 0.727911138603101,
+          "spurious_copper": 0.8894689592589229,
+          "open_circuit": 0.8683311294025594,
+          "mouse_bite": 0.5931560553287922
+        },
+        "overall": {
+          "tp": 625,
+          "fp": 147,
+          "fn": 196,
+          "precision": 0.8095854922279793,
+          "recall": 0.761266747868453,
+          "f1": 0.7846829880728186
+        },
+        "per_class": {
+          "short": {
+            "tp": 129,
+            "fp": 21,
+            "fn": 14,
+            "precision": 0.86,
+            "recall": 0.9020979020979021,
+            "f1": 0.8805460750853242
+          },
+          "spur": {
+            "tp": 113,
+            "fp": 41,
+            "fn": 53,
+            "precision": 0.7337662337662337,
+            "recall": 0.6807228915662651,
+            "f1": 0.70625
+          },
+          "spurious_copper": {
+            "tp": 110,
+            "fp": 6,
+            "fn": 34,
+            "precision": 0.9482758620689655,
+            "recall": 0.7638888888888888,
+            "f1": 0.8461538461538461
+          },
+          "open_circuit": {
+            "tp": 141,
+            "fp": 14,
+            "fn": 18,
+            "precision": 0.9096774193548387,
+            "recall": 0.8867924528301887,
+            "f1": 0.8980891719745223
+          },
+          "mouse_bite": {
+            "tp": 132,
+            "fp": 65,
+            "fn": 77,
+            "precision": 0.6700507614213198,
+            "recall": 0.631578947368421,
+            "f1": 0.6502463054187192
+          }
+        }
+      }
+    }
+  },
+  "source_demo_board": {
+    "base": {
+      "tp": 5,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "adapted": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 1,
+      "precision": 1.0,
+      "recall": 0.8,
+      "f1": 0.8888888888888888
+    }
+  },
+  "notes": [
+    "Target groups follow the original filename prefix. Grouping is a proxy for board design.",
+    "Target metrics score short, spur, spurious copper and open circuit. DefectDet mouse-bite performance is unknown.",
+    "The source development set was previously used to select the base checkpoint and its inference settings.",
+    "Both checkpoints use the same CPU inference settings and 0.325 cutoff. Base predictions were reused from verified prior runs. All 130 source images decoded identically under the previous and current image loaders.",
+    "The Kaggle cell used the training images for its final validator. That log is a training-set result."
+  ],
+  "demo_upload_checks": {
+    "single_layer": {
+      "image": "pcb50_demo.jpg",
+      "original": "pcb_defect_004.jpg",
+      "labelled_boxes": 5,
+      "matched_boxes": 4,
+      "extra_boxes": 0,
+      "matches": [
+        {
+          "class_id": 3,
+          "class_name": "short",
+          "confidence": 0.8071388006210327,
+          "bbox": [
+            143.96595764160156,
+            2687.11474609375,
+            274.0813293457031,
+            2750.404052734375
+          ],
+          "iou": 0.8194615840911865
+        },
+        {
+          "class_id": 1,
+          "class_name": "mouse_bite",
+          "confidence": 0.7452817559242249,
+          "bbox": [
+            1374.128662109375,
+            1599.201171875,
+            1472.951416015625,
+            1682.6368408203125
+          ],
+          "iou": 0.6189162135124207
+        },
+        {
+          "class_id": 4,
+          "class_name": "spur",
+          "confidence": 0.7451827526092529,
+          "bbox": [
+            895.3173217773438,
+            3156.289794921875,
+            996.5119018554688,
+            3234.811767578125
+          ],
+          "iou": 0.7446613907814026
+        },
+        {
+          "class_id": 5,
+          "class_name": "spurious_copper",
+          "confidence": 0.5610043406486511,
+          "bbox": [
+            2024.9693603515625,
+            2015.68994140625,
+            2053.722412109375,
+            2241.521728515625
+          ],
+          "iou": 0.7423688173294067
+        }
+      ],
+      "checkpoint_sha256": "e606b4f44211c94858d57162049de0cbd07ef5e805a175cbf5b7fc400d5fc45c"
+    },
+    "double_layer": {
+      "image": "pcb_defectdet_demo.png",
+      "original": "img4.png",
+      "labelled_boxes": 4,
+      "matched_boxes": 4,
+      "extra_boxes": 0,
+      "matches": [
+        {
+          "class_id": 2,
+          "class_name": "open_circuit",
+          "confidence": 0.7976556420326233,
+          "bbox": [
+            1399.197265625,
+            769.7449340820312,
+            1457.992919921875,
+            827.5220336914062
+          ],
+          "iou": 0.8089100122451782
+        },
+        {
+          "class_id": 4,
+          "class_name": "spur",
+          "confidence": 0.7761146426200867,
+          "bbox": [
+            1325.4774169921875,
+            438.3680725097656,
+            1379.058349609375,
+            490.5966796875
+          ],
+          "iou": 0.8793603181838989
+        },
+        {
+          "class_id": 5,
+          "class_name": "spurious_copper",
+          "confidence": 0.7496426701545715,
+          "bbox": [
+            559.899169921875,
+            748.3247680664062,
+            675.8162841796875,
+            784.7452392578125
+          ],
+          "iou": 0.6556335687637329
+        },
+        {
+          "class_id": 3,
+          "class_name": "short",
+          "confidence": 0.34980422258377075,
+          "bbox": [
+            1000.1970825195312,
+            306.2248840332031,
+            1069.6800537109375,
+            345.9596252441406
+          ],
+          "iou": 0.7766322493553162
+        }
+      ],
+      "checkpoint_sha256": "e606b4f44211c94858d57162049de0cbd07ef5e805a175cbf5b7fc400d5fc45c"
+    }
+  }
+}

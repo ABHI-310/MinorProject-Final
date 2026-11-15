@@ -1,0 +1,57 @@
+{
+  "validation_sha256": "a38d4e77ed7f41b4dce0c72076c4604792ce47e4780cd200d8d26a52e3e8dba4",
+  "confidence": 0.25,
+  "matching_iou": 0.5,
+  "images": 93,
+  "validation": "PKU detector holdout with full six-class annotations",
+  "layouts": [
+    "06",
+    "10"
+  ],
+  "checkpoint_sha256": "931f4ceaeb6eb5d4b827eeff2dde51e7d14846554dc2eddb062607ede21df072",
+  "inference": "Original and horizontal mirror merged before a global confidence cutoff",
+  "per_class": {
+    "open": {
+      "ground_truth": 80,
+      "tp": 51,
+      "fp": 255,
+      "recall": 0.6375,
+      "fp_per_image": 2.7419354838709675
+    },
+    "short": {
+      "ground_truth": 80,
+      "tp": 55,
+      "fp": 67,
+      "recall": 0.6875,
+      "fp_per_image": 0.7204301075268817
+    },
+    "mouse_bite": {
+      "ground_truth": 78,
+      "tp": 43,
+      "fp": 2,
+      "recall": 0.5512820512820513,
+      "fp_per_image": 0.021505376344086023
+    },
+    "spur": {
+      "ground_truth": 74,
+      "tp": 47,
+      "fp": 34,
+      "recall": 0.6351351351351351,
+      "fp_per_image": 0.3655913978494624
+    },
+    "spurious_copper": {
+      "ground_truth": 81,
+      "tp": 45,
+      "fp": 6,
+      "recall": 0.5555555555555556,
+      "fp_per_image": 0.06451612903225806
+    },
+    "missing_hole": {
+      "ground_truth": 76,
+      "tp": 70,
+      "fp": 118,
+      "recall": 0.9210526315789473,
+      "fp_per_image": 1.2688172043010753
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "validation": {
+    "weight_lightgbm": 0.2,
+    "weight_gru": 0.8,
+    "blend_validation_mae_normalized": {
+      "0.0": 0.02254332416121119,
+      "0.1": 0.022390318299157937,
+      "0.2": 0.022367494842877155,
+      "0.3": 0.022458631810387777,
+      "0.4": 0.022672056331484804,
+      "0.5": 0.022987308203778208,
+      "0.6": 0.023404876335048508,
+      "0.7": 0.023914133096429483,
+      "0.8": 0.024517808657949672,
+      "0.9": 0.025205490781054236,
+      "1.0": 0.02600256395456015
+    },
+    "final_validation_mae_steps": 3.2382770081339576,
+    "time_only_validation_mae_steps": 12.326776106067635
+  },
+  "seed_members": [
+    42,
+    536987300,
+    1944468666,
+    233227757,
+    1129302213
+  ],
+  "sha256": {
+    "scaling.npz": "bc0d5d350a9a0d862c9c252c3c16a4d8da9eb425a84b621ed5d29e0773a14af9",
+    "baselines.npz": "6208ccac47780a9bb2f556f35ac85f0ff761ba0849946988decc4e692d336667",
+    "time_only.txt": "51ee71668ecb431094316fc26a58b0c43626db2386db57351e0dff86126a0634",
+    "lightgbm_trials.json": "6bff919209c0dba1d9b43d7fd766712496919dd04878e4c3ad9f861efae85101",
+    "gru_training.json": "f1aca7e7e23303e41ac1dd233bd203888d3e61fc080f8a372d9013631ad8a24a",
+    "ensemble.json": "04d645ad08ac36217e1f7a71bd1ddef875edba6fbe13da19fab7ba4077771e8e",
+    "lgbm_0.txt": "c3f7199d4b1abeacc1ea41f6960158bc7731887dce657e2e1d3727d96c07339f",
+    "lgbm_1.txt": "440f993f271dce2cb84ea42e5bd71951522202fd1da1db37d35d4089ba6bc148",
+    "lgbm_2.txt": "129e6498c9d4a010427dd100895e37a1f762145882a5de29af1159782401335e",
+    "lgbm_3.txt": "23abb82d8b7cd5bdda046fa4431f125fed7d3fa81cc43780324515dcbc4bb286",
+    "lgbm_4.txt": "94fd00854626a9453ab9d4224dfc3446b8f957b50824abe5cab53eb8d02ca002",
+    "gru_0.pt": "31f63dd5e0e91b0bdb0a1767db8cd6461da9b94bd5ee7a48618fc57b5614368b",
+    "gru_1.pt": "61388eba6b5caadb6dab724db786d3ad566f6b9001bd09f3ce35c8abb2bdac68",
+    "gru_2.pt": "f11543dd28fbb1b0151882d28f7f0b20692fec7d65a10662d9238f78fe46d588",
+    "gru_3.pt": "b6b2e6b983f75323670925c6f5e2f369a05b81757e26727ebdf48672118248b9",
+    "gru_4.pt": "0fd20ad115a963b2951d27a6dd2fb174051d6815706ecbd12ec5e884f8560a5b"
+  }
+}

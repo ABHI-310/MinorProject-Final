@@ -1,0 +1,833 @@
+{
+  "experiment": "K100 versus K50 DefectDet adaptation at a fixed 30 epochs",
+  "result_archive_sha256": "fb260a80b4609d0ea7519c2c00dd80fe1b1d634739c221d93618f654dec13e6e",
+  "target_heldout": {
+    "mode": "target",
+    "images": 148,
+    "labels": 591,
+    "classes": [
+      "short",
+      "spur",
+      "spurious_copper",
+      "open_circuit"
+    ],
+    "manifest_sha256": "17cc877af25801cd11b5964ee2142ec83df6f9833b4210bd657f857c86a34318",
+    "adapted_checkpoint_sha256": "328450e0adfd4b1cbcbf2b78aabc0ee65c5010169d6bee742baf508e4d46bc18",
+    "base_checkpoint_sha256": "d3451921ab46341c85c84214209da24ad21ebd6462e06b44c27a1eb884ee64b5",
+    "prediction_settings": {
+      "imgsz": 1280,
+      "device": "cpu",
+      "batch": 1,
+      "conf": 0.001,
+      "verbose": false,
+      "save": false,
+      "classes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "iou": 0.4,
+      "max_det": 300,
+      "agnostic_nms": false,
+      "augment": false,
+      "rect": false,
+      "mirror_image_size": 1536,
+      "confidence_cutoff": 0.325
+    },
+    "training_identity": {
+      "start_sha256": "d3451921ab46341c85c84214209da24ad21ebd6462e06b44c27a1eb884ee64b5",
+      "manifest_sha256": "17cc877af25801cd11b5964ee2142ec83df6f9833b4210bd657f857c86a34318",
+      "ultralytics": "8.4.142",
+      "torch": "2.11.0+cu130",
+      "recipe": {
+        "data": "/kaggle/working/pcb_defectdet_k100/train.yaml",
+        "epochs": 30,
+        "imgsz": 1280,
+        "batch": 2,
+        "nbs": 8,
+        "device": 0,
+        "workers": 0,
+        "amp": false,
+        "cache": false,
+        "val": false,
+        "patience": 0,
+        "save": true,
+        "plots": false,
+        "optimizer": "AdamW",
+        "lr0": 0.0002,
+        "lrf": 0.1,
+        "cos_lr": true,
+        "warmup_epochs": 1.0,
+        "warmup_bias_lr": 0.0,
+        "seed": 42,
+        "deterministic": true,
+        "rect": false,
+        "freeze": 0,
+        "classes": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "augmentations": [],
+        "mosaic": 0.0,
+        "mixup": 0.0,
+        "copy_paste": 0.0,
+        "cutmix": 0.0,
+        "degrees": 0.0,
+        "translate": 0.03,
+        "scale": 0.1,
+        "shear": 0.0,
+        "perspective": 0.0,
+        "fliplr": 0.5,
+        "flipud": 0.5,
+        "hsv_h": 0.0,
+        "hsv_s": 0.1,
+        "hsv_v": 0.1,
+        "project": "/kaggle/working/pcb_defectdet_k100",
+        "name": "training",
+        "exist_ok": false
+      }
+    },
+    "final_training_log": {
+      "epoch": "30",
+      "time": "1877.33",
+      "train/box_loss": "1.23073",
+      "train/cls_loss": "0.70021",
+      "train/dfl_loss": "1.09573",
+      "metrics/precision(B)": "0.94009",
+      "metrics/recall(B)": "0.8195",
+      "metrics/mAP50(B)": "0.90193",
+      "metrics/mAP50-95(B)": "0.51062",
+      "val/box_loss": "1.3644",
+      "val/cls_loss": "0.74285",
+      "val/dfl_loss": "1.15894",
+      "lr/pg0": "2.0493e-05",
+      "lr/pg1": "2.0493e-05",
+      "lr/pg2": "2.0493e-05"
+    },
+    "results": {
+      "base": {
+        "mAP50": 0.0,
+        "mAP50_95": 0.0,
+        "per_class_AP50": {
+          "short": 0.0,
+          "spur": 0.0,
+          "spurious_copper": 0.0,
+          "open_circuit": 0.0
+        },
+        "overall": {
+          "tp": 0,
+          "fp": 58,
+          "fn": 591,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "per_class": {
+          "short": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 147,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "spur": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 146,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "spurious_copper": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 145,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "open_circuit": {
+            "tp": 0,
+            "fp": 58,
+            "fn": 153,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        }
+      },
+      "k50": {
+        "mAP50": 0.7941418209606402,
+        "mAP50_95": 0.38381586304457666,
+        "per_class_AP50": {
+          "short": 0.5970174061196031,
+          "spur": 0.8122781061168327,
+          "spurious_copper": 0.9214494270513497,
+          "open_circuit": 0.8458223445547755
+        },
+        "overall": {
+          "tp": 398,
+          "fp": 31,
+          "fn": 193,
+          "precision": 0.9277389277389277,
+          "recall": 0.6734348561759729,
+          "f1": 0.7803921568627451
+        },
+        "per_class": {
+          "short": {
+            "tp": 68,
+            "fp": 9,
+            "fn": 79,
+            "precision": 0.8831168831168831,
+            "recall": 0.46258503401360546,
+            "f1": 0.6071428571428571
+          },
+          "spur": {
+            "tp": 92,
+            "fp": 1,
+            "fn": 54,
+            "precision": 0.989247311827957,
+            "recall": 0.6301369863013698,
+            "f1": 0.7698744769874477
+          },
+          "spurious_copper": {
+            "tp": 122,
+            "fp": 9,
+            "fn": 23,
+            "precision": 0.9312977099236641,
+            "recall": 0.8413793103448276,
+            "f1": 0.8840579710144928
+          },
+          "open_circuit": {
+            "tp": 116,
+            "fp": 12,
+            "fn": 37,
+            "precision": 0.90625,
+            "recall": 0.7581699346405228,
+            "f1": 0.8256227758007118
+          }
+        }
+      },
+      "k100": {
+        "mAP50": 0.849282701807779,
+        "mAP50_95": 0.44043921266184577,
+        "per_class_AP50": {
+          "short": 0.7180511300752945,
+          "spur": 0.8396396542857556,
+          "spurious_copper": 0.9345101580394274,
+          "open_circuit": 0.9049298648306383
+        },
+        "overall": {
+          "tp": 465,
+          "fp": 51,
+          "fn": 126,
+          "precision": 0.9011627906976745,
+          "recall": 0.7868020304568528,
+          "f1": 0.8401084010840109
+        },
+        "per_class": {
+          "short": {
+            "tp": 90,
+            "fp": 21,
+            "fn": 57,
+            "precision": 0.8108108108108109,
+            "recall": 0.6122448979591837,
+            "f1": 0.6976744186046512
+          },
+          "spur": {
+            "tp": 113,
+            "fp": 10,
+            "fn": 33,
+            "precision": 0.9186991869918699,
+            "recall": 0.773972602739726,
+            "f1": 0.8401486988847584
+          },
+          "spurious_copper": {
+            "tp": 130,
+            "fp": 10,
+            "fn": 15,
+            "precision": 0.9285714285714286,
+            "recall": 0.896551724137931,
+            "f1": 0.9122807017543859
+          },
+          "open_circuit": {
+            "tp": 132,
+            "fp": 10,
+            "fn": 21,
+            "precision": 0.9295774647887324,
+            "recall": 0.8627450980392157,
+            "f1": 0.8949152542372881
+          }
+        }
+      }
+    }
+  },
+  "target_heldout_by_filename_group": {
+    "19": {
+      "images": 16,
+      "labels": 64,
+      "k50": {
+        "mAP50": 0.7807088003367277,
+        "tp": 42,
+        "fp": 2,
+        "fn": 22,
+        "precision": 0.9545454545454546,
+        "recall": 0.65625,
+        "f1": 0.7777777777777778
+      },
+      "k100": {
+        "mAP50": 0.8467712186633306,
+        "tp": 52,
+        "fp": 10,
+        "fn": 12,
+        "precision": 0.8387096774193549,
+        "recall": 0.8125,
+        "f1": 0.8253968253968254
+      }
+    },
+    "30": {
+      "images": 16,
+      "labels": 68,
+      "k50": {
+        "mAP50": 0.6997484423596387,
+        "tp": 41,
+        "fp": 1,
+        "fn": 27,
+        "precision": 0.9761904761904762,
+        "recall": 0.6029411764705882,
+        "f1": 0.7454545454545455
+      },
+      "k100": {
+        "mAP50": 0.7781465045183267,
+        "tp": 46,
+        "fp": 3,
+        "fn": 22,
+        "precision": 0.9387755102040817,
+        "recall": 0.6764705882352942,
+        "f1": 0.7863247863247863
+      }
+    },
+    "32": {
+      "images": 16,
+      "labels": 64,
+      "k50": {
+        "mAP50": 0.8287431101472847,
+        "tp": 40,
+        "fp": 2,
+        "fn": 24,
+        "precision": 0.9523809523809523,
+        "recall": 0.625,
+        "f1": 0.7547169811320755
+      },
+      "k100": {
+        "mAP50": 0.8616627529447298,
+        "tp": 51,
+        "fp": 4,
+        "fn": 13,
+        "precision": 0.9272727272727272,
+        "recall": 0.796875,
+        "f1": 0.8571428571428571
+      }
+    },
+    "47": {
+      "images": 16,
+      "labels": 60,
+      "k50": {
+        "mAP50": 0.7752752424951832,
+        "tp": 39,
+        "fp": 3,
+        "fn": 21,
+        "precision": 0.9285714285714286,
+        "recall": 0.65,
+        "f1": 0.7647058823529411
+      },
+      "k100": {
+        "mAP50": 0.8611721055578287,
+        "tp": 47,
+        "fp": 10,
+        "fn": 13,
+        "precision": 0.8245614035087719,
+        "recall": 0.7833333333333333,
+        "f1": 0.8034188034188035
+      }
+    },
+    "48": {
+      "images": 16,
+      "labels": 63,
+      "k50": {
+        "mAP50": 0.7939838010437871,
+        "tp": 45,
+        "fp": 10,
+        "fn": 18,
+        "precision": 0.8181818181818182,
+        "recall": 0.7142857142857143,
+        "f1": 0.7627118644067796
+      },
+      "k100": {
+        "mAP50": 0.8664551883445073,
+        "tp": 52,
+        "fp": 8,
+        "fn": 11,
+        "precision": 0.8666666666666667,
+        "recall": 0.8253968253968254,
+        "f1": 0.8455284552845529
+      }
+    },
+    "49": {
+      "images": 12,
+      "labels": 48,
+      "k50": {
+        "mAP50": 0.9763846153846154,
+        "tp": 38,
+        "fp": 1,
+        "fn": 10,
+        "precision": 0.9743589743589743,
+        "recall": 0.7916666666666666,
+        "f1": 0.8735632183908046
+      },
+      "k100": {
+        "mAP50": 0.9840659340659341,
+        "tp": 45,
+        "fp": 5,
+        "fn": 3,
+        "precision": 0.9,
+        "recall": 0.9375,
+        "f1": 0.9183673469387755
+      }
+    },
+    "94": {
+      "images": 24,
+      "labels": 96,
+      "k50": {
+        "mAP50": 0.8073071022940318,
+        "tp": 64,
+        "fp": 2,
+        "fn": 32,
+        "precision": 0.9696969696969697,
+        "recall": 0.6666666666666666,
+        "f1": 0.7901234567901234
+      },
+      "k100": {
+        "mAP50": 0.7936361986624431,
+        "tp": 68,
+        "fp": 5,
+        "fn": 28,
+        "precision": 0.9315068493150684,
+        "recall": 0.7083333333333334,
+        "f1": 0.8047337278106509
+      }
+    },
+    "100": {
+      "images": 16,
+      "labels": 64,
+      "k50": {
+        "mAP50": 0.760172495856461,
+        "tp": 44,
+        "fp": 7,
+        "fn": 20,
+        "precision": 0.8627450980392157,
+        "recall": 0.6875,
+        "f1": 0.7652173913043478
+      },
+      "k100": {
+        "mAP50": 0.8541701924232308,
+        "tp": 49,
+        "fp": 3,
+        "fn": 15,
+        "precision": 0.9423076923076923,
+        "recall": 0.765625,
+        "f1": 0.8448275862068966
+      }
+    },
+    "106": {
+      "images": 16,
+      "labels": 64,
+      "k50": {
+        "mAP50": 0.8389231192560885,
+        "tp": 45,
+        "fp": 3,
+        "fn": 19,
+        "precision": 0.9375,
+        "recall": 0.703125,
+        "f1": 0.8035714285714286
+      },
+      "k100": {
+        "mAP50": 0.8949338499669698,
+        "tp": 55,
+        "fp": 3,
+        "fn": 9,
+        "precision": 0.9482758620689655,
+        "recall": 0.859375,
+        "f1": 0.9016393442622951
+      }
+    }
+  },
+  "source_development": {
+    "mode": "source",
+    "images": 130,
+    "labels": 821,
+    "classes": [
+      "short",
+      "spur",
+      "spurious_copper",
+      "open_circuit",
+      "mouse_bite"
+    ],
+    "manifest_sha256": "17cc877af25801cd11b5964ee2142ec83df6f9833b4210bd657f857c86a34318",
+    "adapted_checkpoint_sha256": "328450e0adfd4b1cbcbf2b78aabc0ee65c5010169d6bee742baf508e4d46bc18",
+    "base_checkpoint_sha256": "d3451921ab46341c85c84214209da24ad21ebd6462e06b44c27a1eb884ee64b5",
+    "prediction_settings": {
+      "imgsz": 1280,
+      "device": "cpu",
+      "batch": 1,
+      "conf": 0.001,
+      "verbose": false,
+      "save": false,
+      "classes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "iou": 0.4,
+      "max_det": 300,
+      "agnostic_nms": false,
+      "augment": false,
+      "rect": false,
+      "mirror_image_size": 1536,
+      "confidence_cutoff": 0.325
+    },
+    "training_identity": {
+      "start_sha256": "d3451921ab46341c85c84214209da24ad21ebd6462e06b44c27a1eb884ee64b5",
+      "manifest_sha256": "17cc877af25801cd11b5964ee2142ec83df6f9833b4210bd657f857c86a34318",
+      "ultralytics": "8.4.142",
+      "torch": "2.11.0+cu130",
+      "recipe": {
+        "data": "/kaggle/working/pcb_defectdet_k100/train.yaml",
+        "epochs": 30,
+        "imgsz": 1280,
+        "batch": 2,
+        "nbs": 8,
+        "device": 0,
+        "workers": 0,
+        "amp": false,
+        "cache": false,
+        "val": false,
+        "patience": 0,
+        "save": true,
+        "plots": false,
+        "optimizer": "AdamW",
+        "lr0": 0.0002,
+        "lrf": 0.1,
+        "cos_lr": true,
+        "warmup_epochs": 1.0,
+        "warmup_bias_lr": 0.0,
+        "seed": 42,
+        "deterministic": true,
+        "rect": false,
+        "freeze": 0,
+        "classes": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "augmentations": [],
+        "mosaic": 0.0,
+        "mixup": 0.0,
+        "copy_paste": 0.0,
+        "cutmix": 0.0,
+        "degrees": 0.0,
+        "translate": 0.03,
+        "scale": 0.1,
+        "shear": 0.0,
+        "perspective": 0.0,
+        "fliplr": 0.5,
+        "flipud": 0.5,
+        "hsv_h": 0.0,
+        "hsv_s": 0.1,
+        "hsv_v": 0.1,
+        "project": "/kaggle/working/pcb_defectdet_k100",
+        "name": "training",
+        "exist_ok": false
+      }
+    },
+    "final_training_log": {
+      "epoch": "30",
+      "time": "1877.33",
+      "train/box_loss": "1.23073",
+      "train/cls_loss": "0.70021",
+      "train/dfl_loss": "1.09573",
+      "metrics/precision(B)": "0.94009",
+      "metrics/recall(B)": "0.8195",
+      "metrics/mAP50(B)": "0.90193",
+      "metrics/mAP50-95(B)": "0.51062",
+      "val/box_loss": "1.3644",
+      "val/cls_loss": "0.74285",
+      "val/dfl_loss": "1.15894",
+      "lr/pg0": "2.0493e-05",
+      "lr/pg1": "2.0493e-05",
+      "lr/pg2": "2.0493e-05"
+    },
+    "results": {
+      "base": {
+        "mAP50": 0.8150847911049066,
+        "mAP50_95": 0.37572844918993453,
+        "per_class_AP50": {
+          "short": 0.9482290020237051,
+          "spur": 0.7590776391248528,
+          "spurious_copper": 0.8884649172925453,
+          "open_circuit": 0.8596352450362057,
+          "mouse_bite": 0.6200171520472245
+        },
+        "overall": {
+          "tp": 618,
+          "fp": 110,
+          "fn": 203,
+          "precision": 0.8489010989010989,
+          "recall": 0.7527405602923264,
+          "f1": 0.7979341510652034
+        },
+        "per_class": {
+          "short": {
+            "tp": 125,
+            "fp": 5,
+            "fn": 18,
+            "precision": 0.9615384615384616,
+            "recall": 0.8741258741258742,
+            "f1": 0.9157509157509157
+          },
+          "spur": {
+            "tp": 116,
+            "fp": 34,
+            "fn": 50,
+            "precision": 0.7733333333333333,
+            "recall": 0.6987951807228916,
+            "f1": 0.7341772151898734
+          },
+          "spurious_copper": {
+            "tp": 119,
+            "fp": 26,
+            "fn": 25,
+            "precision": 0.8206896551724138,
+            "recall": 0.8263888888888888,
+            "f1": 0.8235294117647058
+          },
+          "open_circuit": {
+            "tp": 140,
+            "fp": 15,
+            "fn": 19,
+            "precision": 0.9032258064516129,
+            "recall": 0.8805031446540881,
+            "f1": 0.89171974522293
+          },
+          "mouse_bite": {
+            "tp": 118,
+            "fp": 30,
+            "fn": 91,
+            "precision": 0.7972972972972973,
+            "recall": 0.5645933014354066,
+            "f1": 0.6610644257703081
+          }
+        }
+      },
+      "k50": {
+        "mAP50": 0.803361020025374,
+        "mAP50_95": 0.3532519034736514,
+        "per_class_AP50": {
+          "short": 0.937937817533494,
+          "spur": 0.727911138603101,
+          "spurious_copper": 0.8894689592589229,
+          "open_circuit": 0.8683311294025594,
+          "mouse_bite": 0.5931560553287922
+        },
+        "overall": {
+          "tp": 625,
+          "fp": 147,
+          "fn": 196,
+          "precision": 0.8095854922279793,
+          "recall": 0.761266747868453,
+          "f1": 0.7846829880728186
+        },
+        "per_class": {
+          "short": {
+            "tp": 129,
+            "fp": 21,
+            "fn": 14,
+            "precision": 0.86,
+            "recall": 0.9020979020979021,
+            "f1": 0.8805460750853242
+          },
+          "spur": {
+            "tp": 113,
+            "fp": 41,
+            "fn": 53,
+            "precision": 0.7337662337662337,
+            "recall": 0.6807228915662651,
+            "f1": 0.70625
+          },
+          "spurious_copper": {
+            "tp": 110,
+            "fp": 6,
+            "fn": 34,
+            "precision": 0.9482758620689655,
+            "recall": 0.7638888888888888,
+            "f1": 0.8461538461538461
+          },
+          "open_circuit": {
+            "tp": 141,
+            "fp": 14,
+            "fn": 18,
+            "precision": 0.9096774193548387,
+            "recall": 0.8867924528301887,
+            "f1": 0.8980891719745223
+          },
+          "mouse_bite": {
+            "tp": 132,
+            "fp": 65,
+            "fn": 77,
+            "precision": 0.6700507614213198,
+            "recall": 0.631578947368421,
+            "f1": 0.6502463054187192
+          }
+        }
+      },
+      "k100": {
+        "mAP50": 0.7280767459978458,
+        "mAP50_95": 0.2909956189058812,
+        "per_class_AP50": {
+          "short": 0.8944971290958662,
+          "spur": 0.6230672490746252,
+          "spurious_copper": 0.8119210779294255,
+          "open_circuit": 0.8035623475953024,
+          "mouse_bite": 0.5073359262940096
+        },
+        "overall": {
+          "tp": 573,
+          "fp": 152,
+          "fn": 248,
+          "precision": 0.7903448275862069,
+          "recall": 0.6979293544457978,
+          "f1": 0.741267787839586
+        },
+        "per_class": {
+          "short": {
+            "tp": 125,
+            "fp": 24,
+            "fn": 18,
+            "precision": 0.8389261744966443,
+            "recall": 0.8741258741258742,
+            "f1": 0.8561643835616438
+          },
+          "spur": {
+            "tp": 99,
+            "fp": 38,
+            "fn": 67,
+            "precision": 0.7226277372262774,
+            "recall": 0.5963855421686747,
+            "f1": 0.6534653465346535
+          },
+          "spurious_copper": {
+            "tp": 98,
+            "fp": 7,
+            "fn": 46,
+            "precision": 0.9333333333333333,
+            "recall": 0.6805555555555556,
+            "f1": 0.7871485943775101
+          },
+          "open_circuit": {
+            "tp": 132,
+            "fp": 17,
+            "fn": 27,
+            "precision": 0.8859060402684564,
+            "recall": 0.8301886792452831,
+            "f1": 0.8571428571428571
+          },
+          "mouse_bite": {
+            "tp": 119,
+            "fp": 66,
+            "fn": 90,
+            "precision": 0.6432432432432432,
+            "recall": 0.569377990430622,
+            "f1": 0.6040609137055838
+          }
+        }
+      }
+    }
+  },
+  "demo_boards": {
+    "target": {
+      "image": "img4.png",
+      "labels": 4,
+      "base": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 4,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "k50": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "k100": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "source": {
+      "image": "pcb_defect_004.jpg",
+      "labels": 5,
+      "base": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "k50": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 1,
+        "precision": 1.0,
+        "recall": 0.8,
+        "f1": 0.8888888888888888
+      },
+      "k100": {
+        "tp": 3,
+        "fp": 1,
+        "fn": 2,
+        "precision": 0.75,
+        "recall": 0.6,
+        "f1": 0.6666666666666666
+      }
+    }
+  },
+  "notes": [
+    "K100 retains all K50 target samples and adds 50 from the same five training groups.",
+    "Both runs use the same starting weights, 50 source replay images and epoch recipe. K100 processes more batches and has a different target-to-source ratio.",
+    "Target results cover four classes. The four-class target evaluator excludes mouse bite.",
+    "Source metrics cover five classes on the reused single-layer development set.",
+    "The 148 target images were held out of both training runs. Any choice between models based on these results uses this comparison set for selection.",
+    "The same 0.325 operating cutoff and CPU inference settings apply to all compared checkpoints. Original and K50 predictions are from verified prior runs.",
+    "The Kaggle final validator used training images. Its log is a training-set result."
+  ]
+}

@@ -1,0 +1,6 @@
+True / predicted,Short,Spur,Spurious copper,Open circuit,Background
+Short,86,0,1,0,60
+Spur,1,112,0,0,33
+Spurious copper,0,0,133,0,12
+Open circuit,0,0,0,130,23
+Background,31,2,11,14,0
