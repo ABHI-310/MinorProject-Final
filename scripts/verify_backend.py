@@ -53,7 +53,7 @@ def verify(url,report):
         target_classes=model['target_evaluation']['classes']
         assert sorted(d['class_name'] for d in target['detections'])==sorted([*target_classes,'spurious_copper'])
         assert client.get(target['annotated_image_url']).status_code==200
-        pku_sample=ROOT/'data/raw/pku/PCB_DATASET/images/Missing_hole/05_missing_hole_01.jpg'
+        pku_sample=ROOT/'examples/pku_missing_hole_demo.jpg'
         pku_response=client.post('/api/detect',data={'equipment_id':target_equipment},
                                  files={'file':(pku_sample.name,pku_sample.read_bytes(),'image/jpeg')})
         assert pku_response.status_code==200,pku_response.text
@@ -81,6 +81,10 @@ def verify(url,report):
             assert session.scalar(select(func.count()).select_from(VerifiedModel))>=1
         bad=client.post('/api/detect',files={'file':('bad.png',b'not an image','image/png')});assert bad.status_code==400
         demo=client.get('/api/rul/synthetic/EQP_000?limit=3').json();assert demo['synthetic'] is True and len(demo['timeline'])==3
+        rul_demo=client.get('/api/rul/demo')
+        assert rul_demo.status_code==200,rul_demo.text
+        timeline=rul_demo.json()['timeline']
+        assert timeline and all(0<=row['predicted_rul_steps']<=150 for row in timeline)
         assert client.post('/api/adapt').status_code==410
     output={'status':'passed','database':health.json()['database'],'real_model_checks':results,
         'checks':['Single detector metadata and default inference on single-layer and double-layer samples','Archived detector unavailable in project API',
@@ -88,7 +92,7 @@ def verify(url,report):
                   'Verified model metrics persisted','Inspection, detections and outlook stored atomically',
                   'Zero-detection inspections retained','Retry idempotency','Equipment history isolation',
                   'No RUL without declared exposure','History-based simulated outlook after sufficient exposure',
-                  'Invalid upload rejection','Phase 3 synthetic timeline endpoint','No API-triggered retraining'],
+                  'Invalid upload rejection','Phase 3 synthetic timeline endpoint','Trained RUL ensemble demo','No API-triggered retraining'],
         'training_started':False,'rul_is_simulated':True}
     Path(report).write_text(json.dumps(output,indent=2)+'\n');print(json.dumps(output,indent=2));return output
 

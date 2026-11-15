@@ -10,6 +10,6 @@
 
 The six-class checkpoint scored 84.46% mAP50 on 148 double-layer images across short, spur, spurious copper and open circuit. It scored 83.65% mAP50 on 130 single-layer images across those classes and mouse bite. [Paired evaluation](../reports/revamp/pcb100_defectdet_missing_hole_layout11_verification.json)
 
-For missing hole, upload [the synthetic PKU sample](../data/raw/pku/PCB_DATASET/images/Missing_hole/05_missing_hole_01.jpg) from the local dataset. At the 0.40 missing-hole cutoff, the app shows three missing-hole alerts. The class produced 29 visually reviewed false alerts on the double-layer DefectDet images. [Missing-hole audit](../reports/revamp/pcb100_defectdet_missing_hole_double_layer_alert_audit.json)
+For missing hole, upload [the synthetic PKU sample](../examples/pku_missing_hole_demo.jpg) from layouts by Huang and Wei ([dataset paper](https://arxiv.org/abs/1901.08204)). At the 0.40 missing-hole cutoff, the app shows three missing-hole alerts. The class produced 29 visually reviewed false alerts on the double-layer DefectDet images. [Missing-hole audit](../reports/revamp/pcb100_defectdet_missing_hole_double_layer_alert_audit.json)
 
 The single-layer sample is `PCB_Defect/images/pcb_defect_002.jpg` from Rashid et al., *PCB-Defect*, Mendeley Data V1, CC BY 4.0. The double-layer sample is `DefectDet/images/img62.png` from Azam et al., *DefectDet*, Mendeley Data V1, CC BY 4.0. Both copies match the dataset files byte for byte. [PCB-Defect](https://doi.org/10.17632/vdj74sngvn.1) · [DefectDet](https://doi.org/10.17632/t9d9zs3bmb.1)

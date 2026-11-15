@@ -25,7 +25,8 @@ python scripts/manage.py app
 Open [the dashboard](http://127.0.0.1:8000) and upload either
 [single-layer example](examples/pcb_defect_002.jpg) or
 [double-layer example](examples/img62.png). Use **Settings → Run RUL demo**
-for a simulated history. The app verifies model files and builds the dashboard
+for a simulated history. The [demo walkthrough](docs/DEMO_WALKTHROUGH.md)
+includes a missing-hole example. The app verifies model files and builds the dashboard
 on startup. To build and verify without starting the server, run
 `python scripts/manage.py app --check`. API documentation is at
 [localhost:8000/docs](http://127.0.0.1:8000/docs).

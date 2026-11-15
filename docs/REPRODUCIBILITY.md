@@ -10,7 +10,7 @@ Download the assets from the repository's
 The SHA-256 file in the release covers the training input and checkpoint archives.
 
 1. For the single-layer source detector, use
-   [PCB-Defect V1](https://doi.org/10.17632/vdj74sngvn.1) and the Lazarus
+   `PCB_Defect.zip` from the release ([PCB-Defect V1](https://doi.org/10.17632/vdj74sngvn.1)) and the Lazarus
    checkpoint referenced by the [50-board notebook](../notebooks/PCB_50_Board_Transfer_Kaggle.ipynb).
    Its 60-epoch result is also provided as a release asset. Run the
    [100-board upgrade cell](../notebooks/PCB_100_Board_Upgrade_Cell.py) using
@@ -46,9 +46,11 @@ Install `configs/requirements-research.txt` in the app environment for local
 training and testing. Follow the [RUL commands](../pcb_rul/README.md).
 Run `python pcb_rul/simulate.py generate` with the checked-in
 [detector calibration](../pcb_rul/outputs/detector_stats.json).
-To repeat calibration, obtain PKU from the
-[official dataset page](https://robotics.pkusz.edu.cn/resources/dataset/)
-and place the extracted `PCB_DATASET` directory under `data/raw/pku/`.
+To repeat calibration, extract `pku_calibration_layouts_06_10.zip` under
+`data/raw/pku/`, then run `python pcb_rul/simulate.py calibrate`. The release
+subset contains the 93 images and original XML annotations used for the detector
+error measurements. The full dataset is available from
+[PKU](https://robotics.pkusz.edu.cn/resources/dataset/).
 Use the [Kaggle T4 notebook](../notebooks/PCB_RUL_Kaggle_T4.ipynb) for cloud
 training. To rerun the frozen Colab evaluation, upload
 `pcb-rul-kaggle-v2-checkpoint.zip` from the release when prompted by the
@@ -62,8 +64,12 @@ The frozen results, seed comparisons and plots are in
 
 ```sh
 python scripts/manage.py app --check
-python -m pytest tests/test_phase4_api.py tests/test_maintenance_trend.py tests/test_mirror_merge.py -q
+python scripts/manage.py verify-api
+python -m pytest tests -q
 ```
 
-Other test modules and scripts include earlier experimental workflows. Some
-expect datasets or archived checkpoints from those experiments.
+The API check runs the real detector against three sample boards, verifies
+SQLite history and annotated image retrieval, and runs the trained RUL demo.
+Some tests for earlier experiments are skipped when their optional inputs are
+absent. On systems with Docker running, `docker compose up --build` builds
+the frontend and starts the app with PostgreSQL.
