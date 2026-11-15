@@ -1,7 +1,10 @@
 import json
+from hashlib import file_digest
 from pathlib import Path
 
+from backend.model_registry import PROJECT_MODEL
 from config import ROOT
+from rul_synthesis.ensemble_runtime import MODEL_DIR
 from revamp.paths import historical_path
 
 
@@ -13,19 +16,28 @@ def test_historical_paths_use_longest_matching_prefix(tmp_path):
     assert historical_path(tmp_path,"older/file") == tmp_path/"older/file"
 
 
-def test_maintained_entrypoints_and_artifacts_have_canonical_locations():
-    for relative in ["scripts/manage.py","src/backend/main.py","configs/datasets.json",
-                     "notebooks/PCB_Revamp_Phase2_Resume_Kaggle.ipynb",
-                     "artifacts/models/source/model.pt","artifacts/models/target/model.pt",
-                     "data/application/maintenance.db","data/prepared/source/data.yaml",
-                     "data/prepared/target/data.yaml"]:
-        assert (ROOT/relative).is_file(),relative
-    assert not (ROOT/"phase1_fast").exists()
-    assert not (ROOT/"phase2").exists()
+def test_final_entrypoints_and_artifacts_are_present():
+    files = [
+        "scripts/manage.py",
+        "src/backend/main.py",
+        "notebooks/PCB_DefectDet_K50_Cell.py",
+        "notebooks/PCB_RUL_Colab_Evaluation.ipynb",
+        "output/pcb_ieee_latex/main.tex",
+        "pcb_rul/outputs/detector_stats.json",
+        "examples/pcb_defect_002.jpg",
+        "examples/img62.png",
+    ]
+    for relative in files:
+        assert (ROOT / relative).is_file(), relative
 
 
-def test_dataset_catalog_only_references_existing_inputs():
-    document=json.loads((ROOT/"configs/datasets.json").read_text())
-    for dataset in document["datasets"]:
-        for key in ("prepared","original","model_folder","metrics"):
-            assert (ROOT/dataset[key]).exists(),dataset[key]
+def test_final_model_files_match_their_manifests():
+    detector = ROOT / "artifacts/models" / PROJECT_MODEL
+    info = json.loads((detector / "model_info.json").read_text())
+    with (detector / "model.pt").open("rb") as checkpoint:
+        assert file_digest(checkpoint, "sha256").hexdigest() == info["checkpoint_sha256"]
+
+    manifest = json.loads((MODEL_DIR / "manifest.json").read_text())
+    for name, expected in manifest["sha256"].items():
+        with (MODEL_DIR / name).open("rb") as file:
+            assert file_digest(file, "sha256").hexdigest() == expected, name
